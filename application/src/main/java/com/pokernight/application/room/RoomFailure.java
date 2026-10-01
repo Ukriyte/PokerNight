@@ -1,0 +1,13 @@
+package com.pokernight.application.room;
+
+public enum RoomFailure {
+    ROOM_NOT_FOUND,
+    NOT_HOST,
+    PLAYER_ALREADY_REGISTERED,
+    PLAYER_NOT_PENDING,
+    PLAYER_NOT_APPROVED,
+    ROOM_FULL,
+    SEAT_UNAVAILABLE,
+    GAME_IN_PROGRESS,
+    CODE_GENERATION_EXHAUSTED
+}

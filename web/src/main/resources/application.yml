@@ -1,0 +1,36 @@
+server:
+  port: 8080
+  address: 0.0.0.0
+  tomcat:
+    max-http-form-post-size: 64KB
+    max-swallow-size: 64KB
+  shutdown: graceful
+spring:
+  application:
+    name: pokernight-v2
+  lifecycle:
+    timeout-per-shutdown-phase: 20s
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: never
+  info:
+    env:
+      enabled: true
+info:
+  app:
+    name: PokerNight v2
+    version: 0.1.0-SNAPSHOT
+pokernight:
+  sessions:
+    retention: PT168H
+  idempotency:
+    maximum-entries: 10000
+    retention: PT24H
+  persistence:
+    enabled: false
+    directory: ./data

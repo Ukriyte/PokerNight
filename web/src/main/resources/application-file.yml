@@ -1,0 +1,4 @@
+pokernight:
+  persistence:
+    enabled: true
+    directory: ${POKERNIGHT_DATA_DIR:./data}

@@ -1,0 +1,215 @@
+1. State machines — highest priority
+
+Understand deeply:
+
+State vs event vs transition
+Valid/invalid transitions
+Deterministic state transitions
+State invariants
+Why a poker table should process commands sequentially
+
+You should be able to explain:
+
+State + Command → New State + Events
+2. Concurrency
+
+Learn:
+
+Race conditions
+Atomicity
+Locks
+Mutexes
+Optimistic vs pessimistic locking
+Java synchronized
+ReentrantLock
+Executors
+CompletableFuture
+Thread safety
+
+Then understand why your design might use:
+
+1 table → 1 serialized command stream
+
+rather than locking every field.
+
+3. WebSockets
+
+Don't just learn the Spring annotation.
+
+Understand:
+
+HTTP Upgrade
+     ↓
+TCP connection
+     ↓
+WebSocket
+     ↓
+frames
+     ↓
+messages
+
+Then:
+
+connection lifecycle
+ping/pong
+reconnect
+backpressure
+connection limits
+graceful shutdown
+message ordering
+4. Distributed systems fundamentals
+
+This is where the project becomes useful for your career.
+
+Learn:
+
+CAP theorem
+consistency
+availability
+partitioning
+replication
+leader election
+distributed locks
+message queues
+pub/sub
+at-least-once delivery
+at-most-once delivery
+idempotency
+ordering
+
+You don't need to implement all of these.
+
+You need to understand when and why you'd use them.
+
+5. Reliability engineering
+
+Learn:
+
+retries
+timeouts
+circuit breakers
+graceful degradation
+failure detection
+health checks
+graceful shutdown
+recovery
+fault tolerance
+
+Your poker game gives you very concrete examples.
+
+6. Database fundamentals
+
+Since you're already working with Oracle/MySQL, go deeper into:
+
+transactions
+isolation levels
+MVCC
+optimistic/pessimistic locking
+deadlocks
+indexes
+connection pools
+durability
+
+Especially understand:
+
+Why should the live poker game not require a DB transaction for every player action?
+
+7. Redis
+
+Learn the concepts before adding it:
+
+caching
+TTL
+atomic operations
+distributed locks
+pub/sub
+streams
+
+Then decide whether your poker architecture actually needs it.
+
+8. Observability
+
+Learn:
+
+Logs
+Metrics
+Traces
+
+and concepts such as:
+
+correlation IDs
+structured logging
+latency percentiles (p50/p95/p99)
+throughput
+error rate
+RED metrics
+dashboards
+alerting
+9. Testing beyond unit tests
+
+Learn:
+
+Unit tests
+    ↓
+Integration tests
+    ↓
+State-machine tests
+    ↓
+Concurrency tests
+    ↓
+Load tests
+    ↓
+Failure tests
+
+For your project, state-machine and concurrency testing are particularly valuable.
+
+10. Scalability
+
+Finally learn:
+
+Vertical scaling
+Horizontal scaling
+Load balancing
+Connection routing
+Partitioning
+Stateless services
+Stateful services
+Backpressure
+
+Then understand how you'd go from:
+
+1 table
+1 server
+
+to:
+
+10,000 tables
+multiple game servers
+millions of connections
+What I would NOT spend much time learning
+
+Since Claude is writing the implementation:
+
+React syntax
+Spring annotations
+WebSocket boilerplate
+CSS
+CRUD controllers
+getters/setters
+basic SQL CRUD
+
+You should understand the code, but don't spend weeks memorizing implementation details AI can generate.
+
+Your actual learning target
+
+I'd aim to reach the point where Claude gives you this:
+
+"I implemented per-table serialized command processing."
+
+and you can immediately ask:
+
+"Why does that guarantee ordering? What happens if two WebSocket threads submit simultaneously? What happens if the worker crashes? Where is the command persisted? Is the command idempotent?"
+
+That's the level that will make this project valuable.
+
+A good 3–4 week learning sequence

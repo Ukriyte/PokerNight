@@ -1,0 +1,3 @@
+pokernight:
+  persistence:
+    enabled: false
